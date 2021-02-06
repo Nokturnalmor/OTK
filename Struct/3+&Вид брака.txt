@@ -1,0 +1,26 @@
+3+&Вид брака{Def_sv_soed&Деффект св. соед.$Otkl_po_geom&Отклонение по геометр.$Otkl_po_lr&Отклонение по линейн. разм.$Razr_konstr&Разрушение конструкции$back3&Назад{BACK&
+Def_sv_soed&Деффект св. соед.{Geom&Геометрия шва$Kach&Качество шва$Prev_ispr&Превыш. кол. испр-ий$back31&Назад
+Geom&Геометрия шва{Prev_ksh&Превышение катета шва$Ymen_ksh&Уменьшение катета шва$back32&Назад
+Kach&Качество шва{pori&Поры$naplivi&Наплывы$podrez&Подрезы$treshina&Трещины$neprovar&Непровары корня шва$back33&Назад
+Prev_ksh&Превышение катета шва{END&
+Ymen_ksh&Уменьшение катета шва{END&
+pori&Поры{END&
+naplivi&Наплывы{END&
+podrez&Подрезы{END&
+treshina&Трещины{END&
+neprovar&Непровары корня шва{END&
+Prev_ispr&Превыш. кол. испр-ий{END&
+Otkl_po_lr&Отклонение по линейн. разм.{Dlina&Длина$shirina&Ширина$back34&Назад
+Dlina&Длина{END&
+shirina&Ширина{END&
+Otkl_po_geom&Отклонение по геометр.{Osi&Межосевое расстояние$diagonal&Диагональ$progib&Прогиб$back35&Назад
+Osi&Межосевое расстояние{END&
+diagonal&Диагональ{END&
+progib&Прогиб{END&
+Razr_konstr&Разрушение конструкции{END&
+back3&Назад{BACK&
+back31&Назад{BACK&
+back32&Назад{BACK&
+back33&Назад{BACK&
+back34&Назад{BACK&
+back35&Назад{BACK&
