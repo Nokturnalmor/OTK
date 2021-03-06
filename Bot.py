@@ -183,7 +183,7 @@ def spis_op_po_mk_id_op(sp_tabl_mk, id, op):
                     obr2 = obr[-1].split(";")
                     if op in obr2:
                         return obr2
-                    return None
+            return None
 
 
 def zapis_v_mk(Cxema):
