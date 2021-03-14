@@ -186,22 +186,27 @@ def spis_op_po_mk_id_op(sp_tabl_mk, id, op):
             return None
 
 
-def zapis_v_mk(Cxema):
+def zapis_v_mk(Cxema,message,proverka):
     tek_nar = Cxema['1&Номер наряда']
     sp_nar = F.otkr_f(F.tcfg('Naryad'), False, '|')
     nom_mk = F.naiti_v_spis_1_1(sp_nar, 0, tek_nar, 1)
+    if nom_mk == None:
+        Cxema['1&Номер наряда'] = ''
+        return "Наряд номер " + tek_nar + " отсутствует, введи правильный номер"
     id_det = F.naiti_v_spis_1_1(sp_nar, 0, tek_nar, 25)
     n_op = F.naiti_v_spis_1_1(sp_nar, 0, tek_nar, 24)
     if F.nalich_file(F.scfg('mk_data') + os.sep + nom_mk + '.txt') == False:
         print('Не обнаружен файл mk_data')
-        return
+        return 'Не обнаружен файл mk_data'
     sp_tabl_mk = F.otkr_f(F.scfg('mk_data') + os.sep + nom_mk + '.txt', False, '|')
     if sp_tabl_mk == []:
         print('Некорректное содержимое МК ' + nom_mk)
-        return
+        return 'Некорректное содержимое МК ' + nom_mk
     spis_op = spis_op_po_mk_id_op(sp_tabl_mk, id_det, n_op)
     if spis_op == None:
         print('Некорректное содержимое списка операций ' + id_det + ' ' + sp_tabl_mk)
+        return 'Некорректное содержимое списка операций ' + id_det + ' ' + sp_tabl_mk
+    if proverka == True:
         return
     spis_act_mk = spis_act_po_mk_id_op(nom_mk, id_det, spis_op)
     otmetka_v_mk(nom_mk, spis_op, spis_act_mk, id_det, sp_tabl_mk)
@@ -408,8 +413,15 @@ for popitka in range(1, 2999):
                     flag_plus = 0
                     break
             if flag_plus == 1:
+
+                rezult = zapis_v_mk(Cxema,message,True)
+                if rezult != None:
+                    bot.send_message(
+                        message.chat.id, rezult)
+                    get_menu(message)
+                    return
                 Zapis_cxemi(Cxema)
-                zapis_v_mk(Cxema)
+                zapis_v_mk(Cxema, message, False)
                 user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
                 user_markup.row('/start')
                 bot.send_message(
